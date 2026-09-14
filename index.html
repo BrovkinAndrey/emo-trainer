@@ -26,13 +26,13 @@
     </div>
     <main class="container">
       <div class="image">
-        <img src="./images/3.png" alt="зелень" />
+        <img id="task-image" src="./images/1.png" alt="зелень" />
       </div>
       <div class="task">
         <label class="task-label" for="task-input"
-          >Напечатай: <span class="word"></span
+          >Напечатай: <span id="task-word"></span
         ></label>
-        <div class="input-container">
+        <form class="answer-form">
           <input type="text" id="task-input" class="task-input" />
           <button class="submit-task" disabled>
             <svg
@@ -66,12 +66,12 @@
               />
             </svg>
           </button>
-        </div>
+        </form>
       </div>
     </main>
-    <div>
+    <button class="restart-btn">
       <svg
-        class="close-task"
+        class="cross"
         width="71"
         height="72"
         viewBox="0 0 71 72"
@@ -85,6 +85,7 @@
           stroke-width="3"
         />
       </svg>
-    </div>
+    </button>
+    <script src="./script.js"></script>
   </body>
 </html>

@@ -39,6 +39,10 @@ body {
   cursor: pointer;
 }
 
+.btn-page:hover {
+  background-color: #b480d3;
+}
+
 .btn-answered {
   background-color: #daa4fa;
 }
@@ -82,7 +86,7 @@ body {
   border-radius: 1vw;
 }
 
-.input-container {
+.answer-form {
   display: flex;
   gap: 1vw;
 }
@@ -92,7 +96,14 @@ body {
   background-color: #fff;
   border: 0.5vh solid #000;
   border-radius: 1vw;
+}
+
+.submit-task:not(:disabled) {
   cursor: pointer;
+}
+
+.submit-task:not(:disabled):hover {
+  background-color: #31a41c;
 }
 
 .tick {
@@ -108,11 +119,29 @@ body {
   display: none;
 }
 
-.close-task {
+.submit-task:not(:disabled) .tick-gray {
+  display: none;
+}
+
+.submit-task:not(:disabled) .tick-green {
+  display: block;
+}
+
+.restart-btn {
   position: absolute;
   right: 1vw;
   bottom: 1vw;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.restart-btn:hover .cross {
+  width: 5vw;
+  height: 5vw;
+}
+
+.cross {
   width: 4vw;
   height: 4vw;
-  cursor: pointer;
 }
