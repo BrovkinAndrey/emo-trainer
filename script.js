@@ -7,11 +7,11 @@ const pageBtns = document.querySelectorAll(".btn-page");
 const restartBtn = document.querySelector(".restart-btn");
 
 const originalData = [
-  { img: "./images/1.png", taskWord: "Зелень", user: "" },
-  { img: "./images/2.png", taskWord: "Ашан", user: "" },
-  { img: "./images/3.png", taskWord: "Тюмень", user: "" },
-  { img: "./images/4.png", taskWord: "Каток", user: "" },
-  { img: "./images/5.png", taskWord: "Каток", user: "" },
+  { img: "./images/1.png", taskWord: "Зелень", userWord: "" },
+  { img: "./images/2.png", taskWord: "Ашан", userWord: "" },
+  { img: "./images/3.png", taskWord: "Тюмень", userWord: "" },
+  { img: "./images/4.png", taskWord: "Каток", userWord: "" },
+  { img: "./images/5.png", taskWord: "Каток", userWord: "" },
 ];
 
 function shuffle(array) {
@@ -41,7 +41,7 @@ input.addEventListener("input", updateButtonState);
 input.addEventListener("change", updateButtonState);
 
 function saveAnswer() {
-  data[currentIndex].user = input.value.trim();
+  data[currentIndex].userWord = input.value.trim();
 }
 
 function renderQuestion() {
@@ -65,10 +65,19 @@ function renderQuestion() {
   updateButtonState();
 }
 
+function showResults() {
+  localStorage.setItem("quizResults", JSON.stringify(data));
+
+  window.location.href = "answers.html";
+}
+
 function nextNotAnswered() {
   currentIndex = [...pageBtns].findIndex(
     (btn) => !btn.classList.contains("btn-answered"),
   );
+  if (currentIndex >= countQuestion) {
+    showResults();
+  }
 }
 
 answerForm.addEventListener("submit", (e) => {
@@ -87,6 +96,9 @@ pageBtns.forEach((btn, i) => {
   btn.addEventListener("click", () => {
     pageBtns[currentIndex].classList.remove("btn-active");
     currentIndex = i;
+    if (currentIndex >= countQuestion) {
+      showResults();
+    }
     renderQuestion();
   });
 });
