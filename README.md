@@ -4,7 +4,7 @@
 
 ## Демо
 
-[Посмотреть онлайн](https://brovkinandrey.github.io/emo-trainer/) — если включите GitHub Pages.
+[Посмотреть онлайн](https://brovkinandrey.github.io/emo-trainer/)
 
 ## Возможности
 
