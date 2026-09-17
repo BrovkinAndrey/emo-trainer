@@ -15,7 +15,7 @@ const resultIcons = {
 const x = 'текст'
 
 const colorizeVowels = text =>
-  text.replace(/[аеёиоуЫэюя]/gi, v => `<span class="vowel">${v}</span>`)
+  text.replace(/[аеёиоуыэюя]/gi, v => `<span class="vowel">${v}</span>`)
 
 const table = document.createElement('table')
 table.classList.add('result-table')
@@ -30,6 +30,8 @@ tr.innerHTML = `
   <th>${colorizeVowels('ТВОЙ ОТВЕТ')}</th>
   <th>${colorizeVowels('РЕЗУЛЬТАТ')}</th>
 `
+thead.appendChild(tr)
+table.appendChild(thead)
 
 const tbody = document.createElement('tbody')
 
@@ -52,8 +54,6 @@ data.forEach((row, i) => {
   tbody.appendChild(tr)
 })
 
-thead.appendChild(tr)
-table.appendChild(thead)
 table.appendChild(tbody)
 container.appendChild(table)
 
